@@ -2,17 +2,62 @@
 require 'models/Database.php';
 
 class News {
-    public static function getAll() {
-        $db = Database::connect();
-        $stmt = $db->prepare("SELECT * FROM news");
-        return $stmt->fetchAll();
+    private $id;
+    private $title;
+    private $content;
+    private $image;
+    private $category_id;
+    private $created_at;
+    private $deleted_at;
+
+    public function __construct($id, $title, $content, $image, $category_id, $created_at, $deleted_at) {
+        $this->id = $id;
+        $this->title = $title;
+        $this->content = $content;
+        $this->image = $image;
+        $this->category_id = $category_id;
+        $this->created_at = $created_at;
+        $this->deleted_at = $deleted_at;
     }
 
-    public static function getById($id) {
-        $db = Database::connect();
-        $stmt = $db->prepare("SELECT * FROM news WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch();
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function getContent() {
+        return $this->content;
+    }
+
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function getCategoryId() {
+        return $this->category_id;
+    }
+
+    public function getCreatedAt() {
+        return $this->created_at;
+    }
+
+    public function getDeletedAt() {
+        return $this->deleted_at;
+    }
+
+    public function setCategoryId($category_id) {
+        $this->category_id = $category_id;
+    }
+
+    public function setCreatedAt($created_at) {
+        $this->created_at = $created_at;
+    }
+
+    public function setDeletedAt($deleted_at) {
+        $this->deleted_at = $deleted_at;
     }
 }
 ?>
