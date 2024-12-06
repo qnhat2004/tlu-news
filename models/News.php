@@ -1,6 +1,4 @@
 <?php
-require 'models/Database.php';
-
 class News {
     private $id;
     private $title;
@@ -10,18 +8,20 @@ class News {
     private $created_at;
     private $deleted_at;
 
-    public function __construct($id, $title, $content, $image, $category_id, $created_at, $deleted_at) {
-        $this->id = $id;
+    public function __construct($title, $content, $image, $category_id, $created_at) {
         $this->title = $title;
         $this->content = $content;
         $this->image = $image;
         $this->category_id = $category_id;
         $this->created_at = $created_at;
-        $this->deleted_at = $deleted_at;
     }
 
     public function getId() {
         return $this->id;
+    }
+    
+    public function setID($id) {
+        $this->id = $id;
     }
 
     public function getTitle() {
