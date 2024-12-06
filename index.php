@@ -10,6 +10,9 @@ switch ($controller) {
     case 'news':
         $controller = new NewsController();
         break;
+    case 'admin':
+        $controller = new AdminController();
+        break;
 }
 
 if ($id !== null) {
