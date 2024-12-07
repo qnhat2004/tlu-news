@@ -1,12 +1,14 @@
 <?php
 require_once ('./services/NewsServices.php');
 require_once ('./services/CategoriesServices.php');
+require_once ('./auth/session.php');
 
 class AdminController {
     private $newsServices;
     private $categoryServices;
 
     public function __construct() {
+        // checkAdminAccess();
         $this->newsServices = new NewsServices();
         $this->categoryServices = new CategoriesServices();
     }
