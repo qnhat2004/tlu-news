@@ -45,11 +45,16 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <form class="form-inline mb-4 mr-2" method="GET" action="{{ url('/home') }}">
-                            <input class="form-control mr-2" type="search" name="search" placeholder="Tìm kiếm tin tức"
-                                value="">
+                        <form class="form-inline mb-4 mr-2" method="GET" action="index.php?controller=home">
+                            <input class="form-control mr-2" type="search" name="search_input" placeholder="Tìm kiếm tin tức">
                             <button class="btn btn-success" type="submit">Tìm kiếm</button>
                         </form>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?controller=auth&action=showLoginForm">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?controller=auth&action=showRegisterForm">Register</a>
+                        </li>
                     </ul>
                 </div>
             </div>
