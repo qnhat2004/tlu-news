@@ -8,7 +8,7 @@ class AdminController {
     private $categoryServices;
 
     public function __construct() {
-        // checkAdminAccess();
+        checkAdminAccess();
         $this->newsServices = new NewsServices();
         $this->categoryServices = new CategoriesServices();
     }
