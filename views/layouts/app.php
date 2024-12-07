@@ -47,7 +47,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <form class="form-inline mb-4 mr-2" method="GET" action="index.php?controller=home">
+                        <form class="form-inline mb-4 mr-2" method="GET" action="index.php">
+                            <input type="hidden" name="controller" value="home">        <!-- Input ẩn giúp đính kèm controller và action vào URL -->
                             <input class="form-control mr-2" type="search" name="search_input"
                                 placeholder="Tìm kiếm tin tức">
                             <button class="btn btn-success" type="submit">Tìm kiếm</button>

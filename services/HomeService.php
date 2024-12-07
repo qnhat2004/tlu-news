@@ -8,7 +8,7 @@ class HomeService
     {
         try {
             $db = Database::connect();
-            $sql = "SELECT * FROM news, categories WHERE news.category_id = categories.category_id AND (title LIKE :keyword OR content LIKE :keyword OR categories.name LIKE :keyword)";
+            $sql = "SELECT * FROM news, categories WHERE news.category_id = categories.id AND (title LIKE :keyword OR content LIKE :keyword OR categories.name LIKE :keyword)";
             $stmt = $db->prepare($sql);
             $keyword = '%' . $keyword . '%';
             $stmt->bindParam(':keyword', $keyword, PDO::PARAM_STR);

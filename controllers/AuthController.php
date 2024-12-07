@@ -21,7 +21,6 @@ class AuthController {
         if ($user) {
             $_SESSION['name'] = $user->getName();
             $_SESSION['role'] = $user->getRole();
-            echo '<script>alert("Login successfully");</script>';
             header('Location: index.php?controller=news');
         } else {
             header('Location: index.php?controller=auth&action=showLoginForm');
