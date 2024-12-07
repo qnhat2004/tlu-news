@@ -17,16 +17,19 @@ class AuthController {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $user = $this->authServ->login($email, $password);
+        
         if ($user) {
-            $_SESSION['user'] = $user;
-            header('Location: index.php?controller=home&action=index');
+            $_SESSION['name'] = $user->getName();
+            $_SESSION['role'] = $user->getRole();
+            echo '<script>alert("Login successfully");</script>';
+            header('Location: index.php?controller=news');
         } else {
-            header('Location: index.php?controller=auth&action=login');
+            header('Location: index.php?controller=auth&action=showLoginForm');
         }
     }
 
     public function logout() {
-        $_SESSION['user'] = null;
+        session_destroy();
         header('Location: index.php?controller=auth&action=login');
     }
 
@@ -35,11 +38,16 @@ class AuthController {
         include_once "./views/layouts/app.php";
     }
 
-    public function register($username, $password) {
-        $user = $this->authServ->register($username, $password);
+    public function register() {
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $role = $_POST["role"];
+        $password = $_POST["password"];
+
+        $user = $this->authServ->register($name, $email, $password, $role);
         if ($user) {
             $_SESSION['user'] = $user;
-            header('Location: index.php?controller=home&action=index');
+            header('Location: index.php?controller=news');
         } else {
             header('Location: index.php?controller=auth&action=register');
         }
