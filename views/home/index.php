@@ -1,5 +1,11 @@
 <div class="container">
-    <h1 class="mb-4">Tin Tức Mới Nhất</h1>
+    <h1 class="mb-4">
+        <?php if (isset($keyword)) : ?>
+            Kết quả tìm kiếm cho từ khóa: <strong><?php echo $keyword; ?></strong>
+        <?php else : ?>
+            Tin tức mới nhất
+        <?php endif; ?>
+    </h1>
     <div class="row">
         <?php foreach($news as $item) : ?>
             <div class="col-md-4 mb-4">
